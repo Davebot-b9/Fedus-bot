@@ -1,28 +1,31 @@
 import os
 import shelve
-import time
 import asyncio
 from dotenv import load_dotenv
 from openai import OpenAI
 
-from app.services.openai_service import check_if_thread_exists, run_assistant, store_thread
+from app.services.openai_service import (
+    check_if_thread_exists,
+    run_assistant,
+    store_thread,
+)
 
 # Load environment variables
 load_dotenv()
 OPEN_AI_API_KEY = os.getenv("OPEN_AI_API_KEY")
 client = OpenAI(api_key=OPEN_AI_API_KEY)
 
+
 class AssistantsFedus:
-    # Upload file
     @staticmethod
     async def upload_file(path):
-        # Upload a file with an "assistants" purpose
+        """Upload a file with an "assistants" purpose"""
         file = await client.files.create(file=open(path, "rb"), purpose="assistants") # type: ignore
         return file
 
-    # Create assistant
     @staticmethod
     async def create_assistant(file):
+        """Create an assistant with the given file"""
         assistant = await client.beta.assistants.create(
             name="Fedus",
             instructions="Bienvenido al Asistente Legal Fedus...",
@@ -31,21 +34,22 @@ class AssistantsFedus:
             file_ids=[file.id], # type: ignore
         )
         return assistant
-    
+
     @staticmethod
-    # Thread management
     def check_if_thread_exists(wa_id):
+        """Check if a thread exists for the given WhatsApp ID"""
         with shelve.open("threads_db") as threads_shelf:
             return threads_shelf.get(wa_id, None)
 
     @staticmethod
     def store_thread(wa_id, thread_id):
+        """Store the thread ID for the given WhatsApp ID"""
         with shelve.open("threads_db", writeback=True) as threads_shelf:
             threads_shelf[wa_id] = thread_id
 
-    # Generate response
     @staticmethod
     async def generate_response(message_body, wa_id, name):
+        """Generate a response for the given message"""
         thread_id = check_if_thread_exists(wa_id)
         if thread_id is None:
             print(f"Creating new thread for {name} with wa_id {wa_id}")
@@ -61,16 +65,16 @@ class AssistantsFedus:
             role="user",
             content=message_body,
         ) # type: ignore
-        new_message = await run_assistant(thread) # type: ignore
+        new_message = await run_assistant(thread)
         print(f"To {name}:", new_message)
         return new_message
 
-    # Run assistant
     @staticmethod
     async def run_assistant(thread):
+        """Run the assistant on the given thread"""
         assistant = await client.beta.assistants.retrieve("asst_7Wx2nQwoPWSf710jrdWTDlfE") # type: ignore
         run = await client.beta.threads.runs.create(
-            thread_id=thread.id, # type: ignore
+            thread_id=thread.id,
             assistant_id=assistant.id,
         ) # type: ignore
         while run.status != "completed":
