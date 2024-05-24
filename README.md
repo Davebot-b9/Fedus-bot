@@ -23,8 +23,8 @@ Para instalar y ejecutar el chatbot de WhatsApp en tu entorno local, sigue estos
 
     bash
 
-git clone https://github.com/tu-usuario/FedusLey-WhatsAppBot.git
-cd FedusLey-WhatsAppBot
+git clone https://github.com/tu-usuario/Fedus-bot.git
+cd Fedus-bot
 
 Instala las dependencias:
 
@@ -47,7 +47,7 @@ Inicia el servidor:
 
 bash
 
-    nrock
+    ngrock
 
 Uso
 
