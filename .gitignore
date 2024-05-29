@@ -92,3 +92,8 @@ target/
 
 # Exlcude the database file
 .db
+
+# Exclude bd
+threads_db.bak
+threads_db.dat
+threads_db.dir

@@ -65,7 +65,7 @@ class AssistantsFedus:
             thread_id=thread_id,
             role="user",
             content=message_body,
-        ) # type: ignore
+        )
         new_message = run_assistant(thread)
         print(f"To {name}:", new_message)
         return new_message
@@ -86,10 +86,13 @@ class AssistantsFedus:
         return new_message
 
 
-    new_message = generate_response("Que opciones tengo ante una multa por exceso de velocidad en la ciudad de mexico?", "123", "John")
+    # new_message = generate_response("Que opciones tengo ante una multa por exceso de velocidad en la ciudad de mexico?", "123", "John")
 
-    new_message = generate_response("Como puedo realizar una denuncia ante la presencia de violencia familiar?", "456", "Sarah")
+    # new_message = generate_response("Como puedo realizar una denuncia ante la presencia de violencia familiar?", "456", "Sarah")
 
-    # new_message = generate_response("Que documentos necesito para poder hacer reclamo de una herencia?", "123", "John")
+    new_message = generate_response("Que documentos necesito para poder hacer reclamo de una herencia?", "123", "John")
 
-    # new_message = generate_response("Puedes proporcionarme los numero de emergencia ante violencia familiar en mexico?", "456", "Sarah")
+    new_message = generate_response("Puedes proporcionarme los numero de emergencia ante violencia familiar en mexico?", "456", "Sarah")
+
+#Solucion al problema de whatsapp, es posible declarar la variable wa_id de la variable de entorno y asi relacionar cada numero de cliente con su propio hilo
+#Aun queda pendiente el tema de la base de datos y de el servidor donde estara alojado dicha base de datos

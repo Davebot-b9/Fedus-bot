@@ -7,3 +7,5 @@ app = create_app()
 if __name__ == "__main__":
     logging.info("Flask app started")
     app.run(host="0.0.0.0", port=80)
+
+    #Arrancar run.py y al mismo tiempo ngrock, en el mismo puerto (port = 80)
