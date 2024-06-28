@@ -1,24 +1,41 @@
-# Connecting Botpress to WhatsApp
+# Conexión de Botpress a WhatsApp
+Puedes consultar este video de Botpress para ver un tutorial en video de los siguientes pasos. Si nunca has usado WhatsApp para empresas, consulta esta página. Este tutorial usará un número de prueba de WhatsApp que se creará automáticamente para ti. Creo que no puedes tener dos números de prueba bajo una cuenta comercial de Meta.
 
-You can check out [this video from Botpress](https://www.youtube.com/watch?v=LQd1iGJLj58&) for a video walkthrough of the following steps. If you have never used WhatsApp for business, please refer to [this page]((https://developers.facebook.com/docs/whatsapp/cloud-api/get-started)). This tutorial will use a WhatsApp test number that will be automatically created for you. I believe, you cannot have two Test numbers under one Meta business account.
+Pasos
+1. Crea un bot en Botpress
 
-## Steps
-1. Create bot in Botpress
-2. Make sure the bot is published
-4. Go to your [Meta Developers](https://developers.facebook.com/apps/) account
-5. Create App, Other, Business, Name your app, Select WhatsApp as the integration
-6. In Botpress, go to integration and click "Browse in Hub"
-7. Select WhatsApp and install to your Botpress project
-8. Now you have to fill Verify Token, Access Token, and default number
-   - Verify Token: a string that you can select (e.g., 12345)
-   - Access Token: In the Meta App dashboard, to API Setup and copy your temporary Access Token (valid for 24 hours)
-   - Default Number: On the API Setup page, you can also copy the Phone number ID for your test number
-9. Press save and enable intergration
-10. Now on the same page, copy the Webhook URL from the Botpress WhatsApp integration page
-11. Go back to your Meta app, select Configuration, and edit the Callback URL
-12. Paste the Webhook URL and your same Verify Token that you just came up with (e.g., Again, 12345)
-13. Now click verify and save
-14. Now on the same page, got to Webhook fields, Manage and Subscribe to messages
-15. Now go back to API Setup and select your test phone number (or add if it's your first time). This should be your own number that you have access to.
-16. Next, click send test message wait for your message to appear in WhatsApp (this can take 60-120 seconds).
-17. Your connection with Botpress should now be live and you can start chatting!
+2. Asegúrate de que el bot esté publicado
+
+3. Ve a tu cuenta de Meta Developers
+
+4. Crea una aplicación, otra, empresa, nombra tu aplicación, selecciona WhatsApp como la integración
+
+5. En Botpress, ve a integración y haz clic en "Examinar en el centro"
+
+6. Selecciona WhatsApp e instálalo en tu proyecto de Botpress
+
+7. Ahora tienes que completar el token de verificación, el token de acceso y el número predeterminado
+
+   - Token de verificación: una cadena que puedes seleccionar (por ejemplo, 12345)
+
+   - Token de acceso: en el panel de la aplicación Meta, ve a Configuración de API y copia tu token de acceso temporal (válido por 24 horas)
+
+   - Número predeterminado: en la página de configuración de API, también puedes copiar el ID del número de teléfono para tu número de prueba
+
+1. Presiona guardar y habilita la integración
+
+2. Ahora, en la misma página, copia la URL de webhook de la página de integración de WhatsApp de Botpress
+
+3. Regresa a tu aplicación Meta, selecciona Configuración y edita la URL de devolución de llamada
+
+4. Pega la URL de webhook y tu mismo token de verificación que acabas de crear (por ejemplo, nuevamente, 12345)
+
+5. Ahora haz clic en verificar y guardar
+
+6. Ahora, en la misma página, ve a campos de webhook, administra y suscríbete a mensajes
+
+7. Ahora regresa a Configuración de API y selecciona tu número de teléfono de prueba (o agrégalo si es la primera vez). Este debe ser tu propio número al que tienes acceso.
+
+8. A continuación, haz clic en enviar mensaje de prueba y espera a que tu mensaje aparezca en WhatsApp (esto puede tardar de 60 a 120 segundos).
+
+9. Tu conexión con Botpress ahora debería estar activa y puedes comenzar a chatear.

@@ -67,7 +67,8 @@ class AssistantsFedus:
             content=message_body,
         )
         new_message = run_assistant(thread)
-        print(f"To {name}:", new_message)
+        response_clean = new_message.replace("*","")
+        print(f"To {name}:", response_clean)
         return new_message
 
     @staticmethod
@@ -94,5 +95,6 @@ class AssistantsFedus:
 
     new_message = generate_response("Puedes proporcionarme los numero de emergencia ante violencia familiar en mexico?", "456", "Sarah")
 
-#Solucion al problema de whatsapp, es posible declarar la variable wa_id de la variable de entorno y asi relacionar cada numero de cliente con su propio hilo
-#Aun queda pendiente el tema de la base de datos y de el servidor donde estara alojado dicha base de datos
+    new_message = generate_response("Puedes contestar cosas ajenas a lo legal?","55242549275", "Dave")
+
+    new_message = generate_response("Puedes contestar cosas ajenas a lo legal?","55242549975", "Carol")
